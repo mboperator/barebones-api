@@ -11,7 +11,7 @@ module API
 
       def create
         @story = Story.find(params[:story_id])
-        position = @story.sentences.size > 0 ? @story.sentences.last + 1 : 1
+        position = @story.sentences.size > 0 ? @story.sentences.last.position + 1 : 1
         @sentence = Sentence.new(story_id: params[:story_id], content: params[:sentence][:content], position: position)
         if @sentence.save
           render 'show', formats: [:json], handlers: [:jbuilder], status: 201
