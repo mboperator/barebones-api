@@ -11,8 +11,8 @@ http://liveproxy-rails-example.herokuapp.com/api/v1/stories
 #### Create [POST]
 ```json
 {
-  story: {
-    title: String (Required)
+  "story": {
+    "title": "String (Required)"
   }
 }
 ```
@@ -42,10 +42,10 @@ http://liveproxy-rails-example.herokuapp.com/api/v1/sentences
 #### Create [POST]
 ```json
 {
-  sentence: {
-    content: String (required)
+  "sentence": {
+    content: "String (required)"
   }
-  story_id: Integer (required)
+  "story_id": "Integer (required)"
 }
 ```
 
