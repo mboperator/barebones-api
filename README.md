@@ -1,25 +1,64 @@
 #### Barebones API
 
-This is a sample RESTful Rails API in 2 versions, to keep the material clear and easy to follow. Version 1 will cover basic API concepts, and version 2 will cover concepts that are a little more advanced and complex, such as authentication.
-
-The versions will cover the following material:
-
-###### Tell Me a Story
-This is an open story builder. Just add a sentence, and make the story great!
-
-More info here: http://www.yoniweisbrod.com/rails-api-mini-guide/
+From: http://www.yoniweisbrod.com/rails-api-mini-guide/
 
 
-V1
+## Endpoints
 
-* Rendering JSON with Jbuilder
-* Versioning
-* Pagination
+### Stories
+http://liveproxy-rails-example.herokuapp.com/api/v1/stories
 
+#### Create [POST]
+```json
+{
+  story: {
+    title: String (Required)
+  }
+}
+```
 
-V2
+#### List [GET]
+```json
+{
+  "stories": [
+    {
+      "id": 1,
+      "title": "Hola Mundo",
+      "sentences": [
+        {
+          "id": 1,
+          "content": "Once upon a time",
+          "position": 1
+        }
+      ]
+    }
+  ]
+}
+```
 
-The above plus:
-* Testing
-* Authentication
-* Rendering JSON with ActiveModel::Serializers
+### Sentences
+http://liveproxy-rails-example.herokuapp.com/api/v1/sentences
+
+#### Create [POST]
+```json
+{
+  sentence: {
+    content: String (required)
+  }
+  story_id: Integer (required)
+}
+```
+
+#### List [GET]
+URL Params: story_id (required)
+```
+{
+  "sentences": [
+    {
+      "id": 1,
+      "content": "Once upon a time",
+      "position": 1
+    }
+  ]
+}
+```
