@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
-  namespace :api do  
+  namespace :api do
     namespace :v1 do
-      resources :stories do
-        resources :sentences
-      end
+      resources :stories
+      resources :sentences
     end
-  end  
+  end
 
 end
